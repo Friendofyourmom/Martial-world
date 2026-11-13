@@ -690,8 +690,8 @@ let onlineClient=null, onlineUser=null, onlineChannel=null, chatChannel=null, ow
 let mutedPlayers=new Set(JSON.parse(localStorage.getItem("murimMutedPlayers")||"[]"));
 // GAME OWNER: paste your Supabase Project URL and anon/publishable key here before publishing.
 // These are public browser credentials. NEVER use a service_role or secret key.
-const BUILTIN_SUPABASE_URL="";
-const BUILTIN_SUPABASE_ANON_KEY="";
+const BUILTIN_SUPABASE_URL="https://pyasgcfhvjuswlqhbvia.supabase.co";
+const BUILTIN_SUPABASE_ANON_KEY="sb_publishable_5doGwOY14qqF0MtO0eOx9Q_3vfH82iF";
 const ONLINE_CONFIG_KEY="murimOnlineConfigV1";
 function onlineStatus(message,isGood=false){const el=$("onlineStatus");if(el){el.textContent=message;el.style.borderLeftColor=isGood?"#5caa83":"#b58b4a"}}
 function setAccountUI(session){onlineUser=session?.user||null;$("accountPanel").style.display=onlineClient?"block":"none";$("backendSetup").style.display=onlineClient?"none":"block";$("signOutBtn").style.display=onlineUser?"inline-block":"none";$("signInBtn").style.display=onlineUser?"none":"inline-block";$("signUpBtn").style.display=onlineUser?"none":"inline-block";$("onlineFeatures").style.display=onlineUser?"block":"none";$("accountStatus").textContent=onlineUser?"Signed in as "+(onlineUser.email||"player")+" · Cloud save enabled":"Not signed in. Create an account or log in.";if(!onlineUser)onlineStatus(onlineClient?"Connected to Supabase · Sign in to enter the shared world.":"Offline mode · Connect a Supabase project to activate multiplayer.",!!onlineClient)}
